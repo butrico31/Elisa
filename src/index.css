@@ -1,0 +1,31 @@
+/* Base reset + CSS custom properties */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --color-sage: #7A9E7E;
+  --color-moss: #4A6741;
+  --color-beige: #F5EFE6;
+  --color-offwhite: #FAF8F5;
+  --color-cocoa: #6B4C3B;
+  --color-gold: #C9A96E;
+  --color-dark-moss: #2E3F2B;
+  --color-text: #2C2C2C;
+  --color-text-muted: #6B6B6B;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--color-offwhite);
+  color: var(--color-text);
+  overflow-x: hidden;
+}
+
+body.cursor-active { cursor: none; }
+
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+
