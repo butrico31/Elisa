@@ -226,21 +226,13 @@ const DifsVisual = styled.div`
   align-items: center;
 `;
 
-const PlaceholderImage = styled.div`
+const PlaceholderImage = styled.img`
   width: min(100%, 440px);
   aspect-ratio: 3/4;
   border-radius: 40% 60% 60% 40% / 50% 40% 60% 50%;
-  background: linear-gradient(145deg, ${({ theme }) => theme.colors.sage} 0%, ${({ theme }) => theme.colors.moss} 100%);
-  opacity: 0.25;
-  position: relative;
-  &::after {
-    content: '';
-    position: absolute;
-    inset: 10%;
-    border-radius: inherit;
-    background: linear-gradient(145deg, ${({ theme }) => theme.colors.gold} 0%, ${({ theme }) => theme.colors.sage} 100%);
-    opacity: 0.3;
-  }
+  object-fit: cover;
+  object-position: center top;
+  display: block;
 `;
 
 /* ── TESTIMONIALS ── */
@@ -312,19 +304,15 @@ const AboutInner = styled.div`
   @media (min-width: 768px) { grid-template-columns: 300px 1fr; }
 `;
 
-const AvatarCircle = styled.div`
+const AvatarCircle = styled.img`
   width: min(260px, 70vw);
   height: min(260px, 70vw);
   border-radius: 50%;
-  background: linear-gradient(145deg, ${({ theme }) => theme.colors.sage} 0%, ${({ theme }) => theme.colors.moss} 100%);
+  object-fit: cover;
+  object-position: center top;
   margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: ${({ theme }) => theme.fonts.display};
-  font-size: 5rem;
-  color: rgba(255,255,255,0.3);
-  font-style: italic;
+  display: block;
+  border: 4px solid ${({ theme }) => theme.colors.sage};
 `;
 
 /* ── CTA FINAL ── */
@@ -497,7 +485,7 @@ export default function Home() {
               </DifsList>
             </DifsText>
             <DifsVisual>
-              <PlaceholderImage />
+              <PlaceholderImage src="/elisa_bege.jpeg" alt="Elisa Pereira Psicóloga" />
             </DifsVisual>
           </DifsInner>
         </Container>
@@ -543,7 +531,7 @@ export default function Home() {
       {/* ABOUT PREVIEW */}
       <AboutSection>
         <AboutInner ref={aboutRef}>
-          <AvatarCircle>E</AvatarCircle>
+          <AvatarCircle src="/elisa_roupa_verde.jpeg" alt="Elisa Pereira Psicóloga" />
           <div>
             <SectionTitle>Olá, eu sou a Elisa</SectionTitle>
             <SectionSubtitle>

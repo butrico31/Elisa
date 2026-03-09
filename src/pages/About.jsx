@@ -32,19 +32,14 @@ const HeroInner = styled.div`
   @media (min-width: 768px) { grid-template-columns: 1fr 1.1fr; }
 `;
 
-const HeroAvatar = styled.div`
+const HeroAvatar = styled.img`
   width: min(320px, 80vw);
   height: min(320px, 80vw);
   border-radius: 40% 60% 55% 45% / 45% 55% 45% 55%;
-  background: linear-gradient(145deg, ${({ theme }) => theme.colors.sage} 0%, ${({ theme }) => theme.colors.moss} 100%);
+  object-fit: cover;
+  object-position: center top;
   margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: ${({ theme }) => theme.fonts.display};
-  font-size: 6rem;
-  font-style: italic;
-  color: rgba(255,255,255,0.25);
+  display: block;
   flex-shrink: 0;
 `;
 
@@ -343,13 +338,11 @@ const LogoInner = styled.div`
   text-align: center;
 `;
 
-const LogoPlaceholder = styled.div`
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  background: linear-gradient(145deg, ${({ theme }) => theme.colors.sage}, ${({ theme }) => theme.colors.gold});
-  opacity: 0.4;
+const LogoPlaceholder = styled.img`
+  width: 180px;
+  height: auto;
   margin: 0 auto 2rem;
+  display: block;
 `;
 
 /* ── CTA ── */
@@ -440,7 +433,7 @@ export default function About() {
       <HeroSection>
         <Container>
           <HeroInner>
-            <HeroAvatar>E</HeroAvatar>
+            <HeroAvatar src="/elisa_bege.jpeg" alt="Elisa Pereira Psicóloga" />
             <HeroText>
               <HeroLabel>Psicóloga CRP Ativo</HeroLabel>
               <HeroTitle>Olá, eu sou a Elisa</HeroTitle>
@@ -552,7 +545,7 @@ export default function About() {
       <LeafDivider fill="#F5EFE6" bg="#FAF8F5" />
       <LogoSection>
         <LogoInner>
-          <LogoPlaceholder />
+          <LogoPlaceholder src="/LOGO-01-1536x911.png" alt="Logo Elisa Pereira Psicóloga" />
           <SectionTitle>O Significado do Meu Logo</SectionTitle>
           <SectionSubtitle style={{ margin: '0 auto', textAlign: 'center' }}>
             Meu logo representa a integração entre corpo, mente e alma — as três dimensões que

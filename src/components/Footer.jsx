@@ -47,6 +47,14 @@ const FooterLogoTitle = styled.span`
   margin-bottom: 1rem;
 `;
 
+const FooterLogoImg = styled.img`
+  height: 52px;
+  width: auto;
+  margin-bottom: 0.5rem;
+  display: block;
+  opacity: 0.9;
+`;
+
 const Tagline = styled.p`
   font-size: 0.9rem;
   line-height: 1.7;
@@ -150,8 +158,7 @@ export default function Footer() {
     <FooterWrapper>
       <FooterInner>
         <BrandCol>
-          <FooterLogoName>Elisa Pereira</FooterLogoName>
-          <FooterLogoTitle>Psicóloga</FooterLogoTitle>
+          <FooterLogoImg src="/LOGO-01-1536x911.png" alt="Elisa Pereira Psicóloga" />
           <Tagline>Cuidando da sua saúde mental com atenção integrada: corpo, mente e alma.</Tagline>
           <SocialRow>
             <a href={INSTAGRAM} target="_blank" rel="noopener noreferrer" aria-label="Instagram">

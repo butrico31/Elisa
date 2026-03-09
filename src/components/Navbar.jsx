@@ -31,9 +31,22 @@ const Inner = styled.div`
 
 const LogoLink = styled(Link)`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.6rem;
   line-height: 1.1;
   flex-shrink: 0;
+`;
+
+const LogoImg = styled.img`
+  height: 40px;
+  width: auto;
+  display: block;
+`;
+
+const LogoText = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
 const LogoName = styled.span`
@@ -215,8 +228,7 @@ export default function Navbar() {
     <Header $scrolled={scrolled}>
       <Inner>
         <LogoLink to="/">
-          <LogoName>Elisa Pereira</LogoName>
-          <LogoTitle>Psicóloga</LogoTitle>
+          <LogoImg src="/LOGO-01-1536x911.png" alt="Elisa Pereira Psicóloga" />
         </LogoLink>
 
         <NavLinks>
