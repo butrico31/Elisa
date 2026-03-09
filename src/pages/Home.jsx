@@ -11,6 +11,7 @@ import 'swiper/css/pagination';
 
 import { WaveDividerDown, WaveDividerUp, LeafDivider } from '../components/SvgDividers';
 import { BtnPrimary, BtnSecondary, BtnWhite, SectionTitle, SectionSubtitle, Container } from '../styles/ui';
+import { FaBrain, FaMicrophone, FaHandshake, FaLaptop, FaTv, FaLeaf, FaSpa, FaStar, FaBook } from 'react-icons/fa';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -142,9 +143,9 @@ const ServiceCard = styled.div`
 `;
 
 const ServiceIcon = styled.div`
-  font-size: 2.2rem;
   margin-bottom: 1rem;
   line-height: 1;
+  svg { width: 2.2rem; height: 2.2rem; color: ${({ theme }) => theme.colors.moss}; }
 `;
 
 const ServiceTitle = styled.h3`
@@ -202,7 +203,7 @@ const DifIconWrap = styled.div`
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  font-size: 1.3rem;
+  svg { width: 1.3rem; height: 1.3rem; color: ${({ theme }) => theme.colors.moss}; }
 `;
 
 const DifContent = styled.div`
@@ -356,18 +357,18 @@ const CtaSub = styled.p`
 
 /* ── DATA ── */
 const services = [
-  { icon: '🧠', title: 'Consulta Psicológica', desc: 'Atendimento individual online e presencial com foco no bem-estar emocional e mental.' },
-  { icon: '🎤', title: 'Palestras', desc: 'Palestras para empresas, escolas e comunidades sobre saúde mental e qualidade de vida.' },
-  { icon: '🤝', title: 'Grupos de Vivência', desc: 'Espaço coletivo de autoconhecimento, escuta e desenvolvimento emocional compartilhado.' },
-  { icon: '💻', title: 'Cursos Online', desc: 'Cursos estruturados para aprofundar o autoconhecimento e desenvolver regulação emocional.' },
-  { icon: '📺', title: 'Lives Terapêuticas', desc: 'Conteúdo ao vivo com orientações práticas sobre saúde mental, ansiedade e bem-estar.' },
+  { icon: <FaBrain />, title: 'Consulta Psicológica', desc: 'Atendimento individual online e presencial com foco no bem-estar emocional e mental.' },
+  { icon: <FaMicrophone />, title: 'Palestras', desc: 'Palestras para empresas, escolas e comunidades sobre saúde mental e qualidade de vida.' },
+  { icon: <FaHandshake />, title: 'Grupos de Vivência', desc: 'Espaço coletivo de autoconhecimento, escuta e desenvolvimento emocional compartilhado.' },
+  { icon: <FaLaptop />, title: 'Cursos Online', desc: 'Cursos estruturados para aprofundar o autoconhecimento e desenvolver regulação emocional.' },
+  { icon: <FaTv />, title: 'Lives Terapêuticas', desc: 'Conteúdo ao vivo com orientações práticas sobre saúde mental, ansiedade e bem-estar.' },
 ];
 
 const diferenciais = [
-  { icon: '🌿', title: '25 anos de experiência clínica', desc: 'Atuação com adolescentes, adultos, grupos e casais desde 2000.' },
-  { icon: '🧘', title: 'Psicoterapia Corporal', desc: '3 especializações em abordagem que integra técnicas corporais e emocionais.' },
-  { icon: '✨', title: 'Visão integrada: corpo, mente e alma', desc: 'Compreensão holística do ser humano em cada atendimento.' },
-  { icon: '📚', title: 'Atualização contínua', desc: 'Formação em Terapia do Esquema e NR-1 (Riscos Psicossociais).' },
+  { icon: <FaLeaf />, title: '25 anos de experiência clínica', desc: 'Atuação com adolescentes, adultos, grupos e casais desde 2000.' },
+  { icon: <FaSpa />, title: 'Psicoterapia Corporal', desc: '3 especializações em abordagem que integra técnicas corporais e emocionais.' },
+  { icon: <FaStar />, title: 'Visão integrada: corpo, mente e alma', desc: 'Compreensão holística do ser humano em cada atendimento.' },
+  { icon: <FaBook />, title: 'Atualização contínua', desc: 'Formação em Terapia do Esquema e NR-1 (Riscos Psicossociais).' },
 ];
 
 const testimonials = [

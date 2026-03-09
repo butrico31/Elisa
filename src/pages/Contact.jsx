@@ -4,6 +4,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { BtnPrimary, Container, SectionTitle, SectionSubtitle } from '../styles/ui';
 import { WaveDividerDown } from '../components/SvgDividers';
+import { FaWhatsapp, FaEnvelope, FaMapMarkerAlt, FaInstagram } from 'react-icons/fa';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -191,8 +192,8 @@ const InfoIcon = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.4rem;
   flex-shrink: 0;
+  svg { width: 1.4rem; height: 1.4rem; color: ${({ theme }) => theme.colors.moss}; }
 `;
 
 const InfoText = styled.div`
@@ -259,10 +260,10 @@ export default function Contact() {
   };
 
   const contactItems = [
-    { icon: '💬', title: 'WhatsApp', desc: '+55 19 98128-1661', href: WA },
-    { icon: '📧', title: 'E-mail', desc: 'elisascognamiglio@uol.com.br', href: 'mailto:elisascognamiglio@uol.com.br' },
-    { icon: '📍', title: 'Localização', desc: 'Vinhedo, São Paulo — SP', href: 'https://maps.google.com/?q=Vinhedo,SP' },
-    { icon: '📸', title: 'Instagram', desc: '@psicologaelisapereira', href: INSTAGRAM },
+    { icon: <FaWhatsapp />, title: 'WhatsApp', desc: '+55 19 98128-1661', href: WA },
+    { icon: <FaEnvelope />, title: 'E-mail', desc: 'elisascognamiglio@uol.com.br', href: 'mailto:elisascognamiglio@uol.com.br' },
+    { icon: <FaMapMarkerAlt />, title: 'Localização', desc: 'Vinhedo, São Paulo — SP', href: 'https://maps.google.com/?q=Vinhedo,SP' },
+    { icon: <FaInstagram />, title: 'Instagram', desc: '@psicologaelisapereira', href: INSTAGRAM },
   ];
 
   return (

@@ -4,6 +4,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { BtnPrimary, Container, SectionTitle, SectionSubtitle } from '../styles/ui';
 import { WaveDividerDown, WaveDividerUp, LeafDivider } from '../components/SvgDividers';
+import { FaLeaf, FaBrain, FaHeart, FaStar } from 'react-icons/fa';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -317,6 +318,10 @@ const AboutCard = styled.div`
     font-weight: 500;
     color: ${({ theme }) => theme.colors.darkMoss};
     margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    svg { color: ${({ theme }) => theme.colors.moss}; flex-shrink: 0; }
   }
   p {
     font-size: 0.92rem;
@@ -506,7 +511,7 @@ export default function About() {
           </SectionSubtitle>
           <AboutGrid ref={aboutGridRef}>
             <AboutCard>
-              <h3>🌿 Visão Integrada</h3>
+              <h3><FaLeaf /> Visão Integrada</h3>
               <p>
                 A Psicoterapia Corporal compreende o ser humano em sua totalidade: corpo, mente e alma
                 estão interligados. Trabalho com técnicas de relaxamento e consciência corporal que
@@ -514,7 +519,7 @@ export default function About() {
               </p>
             </AboutCard>
             <AboutCard>
-              <h3>🧠 Evidência Científica</h3>
+              <h3><FaBrain /> Evidência Científica</h3>
               <p>
                 Minha prática é fundamentada em abordagens cientificamente validadas, como a
                 Terapia do Esquema e protocolos de saúde ocupacional (NR-1). Combino rigor técnico
@@ -522,7 +527,7 @@ export default function About() {
               </p>
             </AboutCard>
             <AboutCard>
-              <h3>❤️ Ética e Acolhimento</h3>
+              <h3><FaHeart /> Ética e Acolhimento</h3>
               <p>
                 Atendo com ética, atenção e retorno consistente. Cada paciente recebe cuidado
                 individualizado, dentro de um ambiente seguro, confidencial e acolhedor —
@@ -530,7 +535,7 @@ export default function About() {
               </p>
             </AboutCard>
             <AboutCard>
-              <h3>✨ Espiritualidade Cristã</h3>
+              <h3><FaStar /> Espiritualidade Cristã</h3>
               <p>
                 Integro, quando pertinente, a dimensão espiritual ao processo terapêutico.
                 Minha espiritualidade cristã e católica ressoa com muitos pacientes que buscam

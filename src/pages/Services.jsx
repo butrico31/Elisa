@@ -4,6 +4,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { BtnPrimary, Container, SectionTitle, SectionSubtitle } from '../styles/ui';
 import { WaveDividerDown, WaveDividerUp } from '../components/SvgDividers';
+import { FaBrain, FaMicrophone, FaHandshake, FaLaptop, FaTv, FaChevronDown } from 'react-icons/fa';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -90,9 +91,9 @@ const AccordionHeader = styled.button`
 `;
 
 const AccordionIcon = styled.span`
-  font-size: 1.8rem;
   flex-shrink: 0;
   line-height: 1;
+  svg { width: 1.8rem; height: 1.8rem; color: ${({ theme }) => theme.colors.moss}; }
 `;
 
 const AccordionMeta = styled.div`
@@ -114,11 +115,11 @@ const AccordionSubtitle = styled.span`
 `;
 
 const AccordionChevron = styled.span`
-  font-size: 1.2rem;
   color: ${({ theme }) => theme.colors.sage};
   transform: rotate(${({ $open }) => $open ? '180deg' : '0'});
   transition: transform 0.35s ease;
   flex-shrink: 0;
+  svg { width: 1.2rem; height: 1.2rem; }
 `;
 
 const AccordionBody = styled.div`
@@ -181,7 +182,7 @@ const CtaSub = styled.p`
 /* ── Data ── */
 const services = [
   {
-    icon: '🧠',
+    icon: <FaBrain />,
     title: 'Consulta Psicológica',
     subtitle: 'Online e Presencial · Individual',
     desc: 'Atendimento psicológico individualizado com foco em saúde mental, equilíbrio emocional e autoconhecimento. Utilizando técnicas integradas de corpo, mente e alma.',
@@ -190,7 +191,7 @@ const services = [
     highlights: ['Técnicas corporais', 'Escuta ativa', 'Acompanhamento contínuo'],
   },
   {
-    icon: '🎤',
+    icon: <FaMicrophone />,
     title: 'Palestras',
     subtitle: 'Empresas, Escolas e Comunidades',
     desc: 'Palestras impactantes e transformadoras sobre saúde mental, qualidade de vida, prevenção ao burnout e bem-estar emocional no ambiente coletivo.',
@@ -199,7 +200,7 @@ const services = [
     highlights: ['Temáticas sob demanda', 'Linguagem acessível e científica', 'Interativa e participativa'],
   },
   {
-    icon: '🤝',
+    icon: <FaHandshake />,
     title: 'Grupos de Vivência',
     subtitle: 'Espaço Coletivo de Crescimento',
     desc: 'Grupos terapêuticos que criam um espaço seguro de partilha, escuta e desenvolvimento emocional coletivo. Uma forma poderosa de cura e pertencimento.',
@@ -208,7 +209,7 @@ const services = [
     highlights: ['Ambiente acolhedor', 'Facilitação especializada', 'Conexão genuína'],
   },
   {
-    icon: '💻',
+    icon: <FaLaptop />,
     title: 'Cursos Online',
     subtitle: 'Aprendizado e Autoconhecimento',
     desc: 'Cursos estruturados para aprofundar o autoconhecimento, desenvolver regulação emocional e aprender ferramentas práticas de saúde psíquica.',
@@ -217,7 +218,7 @@ const services = [
     highlights: ['Conteúdo científico acessível', 'Exercícios práticos', 'Suporte via comunidade'],
   },
   {
-    icon: '📺',
+    icon: <FaTv />,
     title: 'Lives Terapêuticas',
     subtitle: 'Conteúdo ao Vivo',
     desc: 'Transmissões ao vivo com orientações práticas, reflexões e conteúdo terapêutico sobre temas relevantes da saúde mental contemporânea.',
@@ -254,7 +255,7 @@ function AccordionServiceItem({ service, index }) {
           <AccordionTitle>{service.title}</AccordionTitle>
           <AccordionSubtitle>{service.subtitle}</AccordionSubtitle>
         </AccordionMeta>
-        <AccordionChevron $open={open}>▾</AccordionChevron>
+        <AccordionChevron $open={open}><FaChevronDown /></AccordionChevron>
       </AccordionHeader>
 
       <AccordionBody ref={bodyRef}>
