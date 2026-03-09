@@ -115,6 +115,32 @@ const HeroGhostLink = styled(Link)`
   &:hover { gap: 0.6rem; }
 `;
 
+const HeroInner = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  width: 100%;
+  @media (min-width: 900px) {
+    grid-template-columns: 1fr auto;
+    gap: 4rem;
+  }
+`;
+
+const HeroLogoImg = styled.img`
+  width: min(340px, 72vw);
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  opacity: 0.92;
+  filter: drop-shadow(0 20px 50px rgba(74,103,65,0.18));
+  animation: ${fadeInUp} 1s 0.3s both;
+  @media (max-width: 899px) {
+    width: min(200px, 55vw);
+    order: -1;
+  }
+`;
+
 /* ── SERVICES ── */
 const ServicesSection = styled.section`
   padding: 6rem 1.5rem;
@@ -425,23 +451,26 @@ export default function Home() {
         <HeroOrb />
         <HeroOrbSmall />
         <Container>
-          <HeroContent>
-            <HeroBadge>✦ CRP Ativo | 25 Anos de Experiência</HeroBadge>
-            <HeroTitle>
-              Cuide da Sua <span>Saúde Mental</span> com Atendimento Personalizado e Humanizado
-            </HeroTitle>
-            <HeroSubtitle>
-              Psicóloga com 25 anos de experiência em atendimento clínico, corporal e integrado. Presencial em Vinhedo/SP e online.
-            </HeroSubtitle>
-            <HeroCtas>
-              <BtnPrimary href={WA} target="_blank" rel="noopener noreferrer">
-                Agendar Consulta pelo WhatsApp
-              </BtnPrimary>
-              <HeroGhostLink to="/servicos">
-                Conhecer os Serviços →
-              </HeroGhostLink>
-            </HeroCtas>
-          </HeroContent>
+          <HeroInner>
+            <HeroContent>
+              <HeroBadge>❆ CRP Ativo | 25 Anos de Experiência</HeroBadge>
+              <HeroTitle>
+                Cuide da Sua <span>Saúde Mental</span> com Atendimento Personalizado e Humanizado
+              </HeroTitle>
+              <HeroSubtitle>
+                Psicóloga com 25 anos de experiência em atendimento clínico, corporal e integrado. Presencial em Vinhedo/SP e online.
+              </HeroSubtitle>
+              <HeroCtas>
+                <BtnPrimary href={WA} target="_blank" rel="noopener noreferrer">
+                  Agendar Consulta pelo WhatsApp
+                </BtnPrimary>
+                <HeroGhostLink to="/servicos">
+                  Conhecer os Serviços →
+                </HeroGhostLink>
+              </HeroCtas>
+            </HeroContent>
+            <HeroLogoImg src="/icon-logo.PNG" alt="" aria-hidden="true" />
+          </HeroInner>
         </Container>
       </HeroSection>
 
