@@ -156,16 +156,37 @@ const ServicesGrid = styled.div`
 `;
 
 const ServiceCard = styled.div`
-  background-color: ${({ theme }) => theme.colors.beige};
+  background-color: ${({ $featured, theme }) => $featured ? theme.colors.beige : theme.colors.beige};
   border-radius: 20px;
   padding: 2rem 1.5rem;
-  border: 1px solid rgba(122,158,126,0.1);
+  border: 1px solid ${({ $featured, theme }) => $featured ? theme.colors.gold : 'rgba(122,158,126,0.1)'};
   transition: box-shadow 0.3s, transform 0.3s;
   cursor: default;
+  position: relative;
+  overflow: hidden;
+  ${({ $featured, theme }) => $featured && `
+    background: linear-gradient(145deg, ${theme.colors.beige} 60%, rgba(201,169,110,0.08) 100%);
+    box-shadow: 0 4px 24px rgba(201,169,110,0.12);
+  `}
   &:hover {
     box-shadow: 0 8px 40px rgba(74,103,65,0.1);
     transform: translateY(-5px);
   }
+`;
+
+const FeaturedTag = styled.span`
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background-color: ${({ theme }) => theme.colors.gold};
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.65rem;
+  border-radius: 50px;
+  margin-bottom: 0.85rem;
 `;
 
 const ServiceIcon = styled.div`
@@ -384,9 +405,9 @@ const CtaSub = styled.p`
 /* ── DATA ── */
 const services = [
   { icon: <FaBrain />, title: 'Consulta Psicológica', desc: 'Atendimento individual online e presencial com foco no bem-estar emocional e mental.' },
-  { icon: <FaMicrophone />, title: 'Palestras', desc: 'Palestras para empresas, escolas e comunidades sobre saúde mental e qualidade de vida.' },
+  { icon: <FaMicrophone />, title: 'Palestras', desc: 'Palestras para empresas, escolas e comunidades sobre saúde mental e qualidade de vida.', featured: true },
   { icon: <FaHandshake />, title: 'Grupos de Vivência', desc: 'Espaço coletivo de autoconhecimento, escuta e desenvolvimento emocional compartilhado.' },
-  { icon: <FaLaptop />, title: 'Cursos Online', desc: 'Cursos estruturados para aprofundar o autoconhecimento e desenvolver regulação emocional.' },
+  { icon: <FaLaptop />, title: 'Mentorias Online', desc: 'Cursos e mentorias estruturados para aprofundar o autoconhecimento e desenvolver regulação emocional.', featured: true },
   { icon: <FaTv />, title: 'Lives Terapêuticas', desc: 'Conteúdo ao vivo com orientações práticas sobre saúde mental, ansiedade e bem-estar.' },
 ];
 
@@ -483,7 +504,8 @@ export default function Home() {
           <SectionSubtitle>Serviços pensados para o seu bem-estar emocional, em diferentes formatos.</SectionSubtitle>
           <ServicesGrid>
             {services.map((s, i) => (
-              <ServiceCard key={i} className="service-card">
+              <ServiceCard key={i} className="service-card" $featured={s.featured}>
+                {s.featured && <FeaturedTag>★ Destaque</FeaturedTag>}
                 <ServiceIcon>{s.icon}</ServiceIcon>
                 <ServiceTitle>{s.title}</ServiceTitle>
                 <ServiceDesc>{s.desc}</ServiceDesc>
