@@ -111,10 +111,7 @@ const TrackOuter = styled.div`
   flex-shrink: 0;
   position: relative;
   @media (max-width: 767px) {
-    overflow-x: auto;
-    overflow-y: visible;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
+    overflow: visible;
   }
 `;
 
@@ -147,8 +144,12 @@ const TrackInner = styled.div`
   will-change: transform;
   width: max-content;
   @media (max-width: 767px) {
-    padding: 0 1.25rem;
-    gap: 1rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0 1.5rem;
+    width: 100%;
+    will-change: auto;
   }
 `;
 
@@ -160,8 +161,27 @@ const TimelineItem = styled.div`
   flex-direction: column;
   align-items: center;
   @media (max-width: 767px) {
-    width: clamp(240px, 72vw, 300px);
-    scroll-snap-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1rem;
+    width: 100%;
+    position: relative;
+    padding-bottom: 2rem;
+    &::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, ${({ theme }) => theme.colors.sage}, transparent 95%);
+      z-index: 0;
+    }
+    &:last-child {
+      padding-bottom: 0.5rem;
+      &::before { display: none; }
+    }
   }
 `;
 
@@ -173,7 +193,15 @@ const TimelineHalf = styled.div`
   justify-content: ${({ $top }) => $top ? 'flex-end' : 'flex-start'};
   width: 100%;
   padding: ${({ $top }) => $top ? '0 0.5rem 0' : '0 0.5rem'};
-  @media (max-width: 767px) { height: 130px; }
+  @media (max-width: 767px) {
+    order: 1;
+    flex: 1;
+    height: auto;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0.6rem 0 0 0;
+    &:empty { display: none; }
+  }
 `;
 
 const TimelineDot = styled.div`
@@ -186,6 +214,12 @@ const TimelineDot = styled.div`
   flex-shrink: 0;
   z-index: 2;
   position: relative;
+  @media (max-width: 767px) {
+    order: -1;
+    flex-shrink: 0;
+    margin-top: 1.4rem;
+    z-index: 1;
+  }
 `;
 
 const TimelineConnector = styled.div`
@@ -197,6 +231,7 @@ const TimelineConnector = styled.div`
     ${({ theme }) => theme.colors.sage},
     transparent
   );
+  @media (max-width: 767px) { display: none; }
 `;
 
 const TimelineCard = styled.div`
