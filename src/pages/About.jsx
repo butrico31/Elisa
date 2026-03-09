@@ -91,9 +91,11 @@ const TimelinePinWrap = styled.div`
   justify-content: center;
   position: relative;
   gap: 1.5rem;
+  overflow: hidden;
   @media (max-width: 767px) {
     height: auto;
     padding: 4rem 0 2.5rem;
+    overflow: visible;
   }
 `;
 
