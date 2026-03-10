@@ -363,6 +363,139 @@ const AvatarCircle = styled.img`
   border: 4px solid ${({ theme }) => theme.colors.sage};
 `;
 
+/* ── SPOTLIGHT PALESTRAS & MENTORIAS ── */
+const SpotlightSection = styled.section`
+  padding: 6rem 1.5rem;
+  background: linear-gradient(150deg, ${({ theme }) => theme.colors.darkMoss} 0%, #1b2a18 100%);
+  position: relative;
+  overflow: hidden;
+  @media (min-width: 768px) { padding: 8rem 3rem; }
+  &::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: min(60vw, 500px);
+    height: min(60vw, 500px);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,169,110,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+`;
+
+const SpotlightHeader = styled.div`
+  text-align: center;
+  margin-bottom: 3.5rem;
+`;
+
+const SpotlightLabel = styled.span`
+  display: inline-block;
+  background: rgba(201,169,110,0.15);
+  border: 1px solid rgba(201,169,110,0.35);
+  color: ${({ theme }) => theme.colors.gold};
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.35rem 1rem;
+  border-radius: 50px;
+  margin-bottom: 1.2rem;
+`;
+
+const SpotlightTitle = styled.h2`
+  font-family: ${({ theme }) => theme.fonts.display};
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 500;
+  color: ${({ theme }) => theme.colors.beige};
+  line-height: 1.15;
+  margin-bottom: 1rem;
+  span { font-style: italic; color: ${({ theme }) => theme.colors.gold}; }
+`;
+
+const SpotlightSubtitle = styled.p`
+  font-size: 1rem;
+  color: rgba(245,239,230,0.72);
+  max-width: 540px;
+  margin: 0 auto;
+  line-height: 1.8;
+`;
+
+const SpotlightGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  @media (min-width: 768px) { grid-template-columns: 1fr 1fr; }
+`;
+
+const SpotlightCard = styled.div`
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(201,169,110,0.2);
+  border-radius: 24px;
+  padding: 2.5rem 2rem;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+  &:hover {
+    background: rgba(255,255,255,0.08);
+    transform: translateY(-6px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.25);
+  }
+`;
+
+const SpotlightCardIcon = styled.div`
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: rgba(201,169,110,0.12);
+  border: 1px solid rgba(201,169,110,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  svg { width: 1.6rem; height: 1.6rem; color: ${({ theme }) => theme.colors.gold}; }
+`;
+
+const SpotlightCardTitle = styled.h3`
+  font-family: ${({ theme }) => theme.fonts.display};
+  font-size: 1.7rem;
+  font-weight: 500;
+  color: ${({ theme }) => theme.colors.beige};
+  margin-bottom: 0.75rem;
+`;
+
+const SpotlightCardDesc = styled.p`
+  font-size: 0.92rem;
+  color: rgba(245,239,230,0.68);
+  line-height: 1.8;
+  margin-bottom: 1.75rem;
+`;
+
+const SpotlightBullets = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+`;
+
+const SpotlightBullet = styled.li`
+  font-size: 0.88rem;
+  color: rgba(245,239,230,0.72);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  &::before {
+    content: '✦';
+    color: ${({ theme }) => theme.colors.gold};
+    font-size: 0.65rem;
+    flex-shrink: 0;
+  }
+`;
+
+const SpotlightCta = styled.div`
+  text-align: center;
+`;
+
 /* ── CTA FINAL ── */
 const CtaSection = styled.section`
   padding: 6rem 1.5rem;
@@ -428,6 +561,7 @@ const testimonials = [
 export default function Home() {
   const servicesRef = useRef(null);
   const difsRef = useRef(null);
+  const spotlightRef = useRef(null);
   const aboutRef = useRef(null);
   const ctaFinalRef = useRef(null);
 
@@ -445,6 +579,18 @@ export default function Home() {
           { opacity: 0, x: -30 },
           { opacity: 1, x: 0, stagger: 0.15, duration: 0.7, ease: 'power3.out',
             scrollTrigger: { trigger: difsRef.current, start: 'top 75%', once: true } }
+        );
+      }
+      if (spotlightRef.current) {
+        gsap.fromTo(spotlightRef.current.querySelectorAll('.spotlight-card'),
+          { opacity: 0, y: 50 },
+          { opacity: 1, y: 0, stagger: 0.2, duration: 0.8, ease: 'power3.out',
+            scrollTrigger: { trigger: spotlightRef.current, start: 'top 78%', once: true } }
+        );
+        gsap.fromTo(spotlightRef.current.querySelectorAll('.spotlight-header > *'),
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, stagger: 0.12, duration: 0.7, ease: 'power3.out',
+            scrollTrigger: { trigger: spotlightRef.current, start: 'top 82%', once: true } }
         );
       }
       if (aboutRef.current) {
@@ -580,10 +726,63 @@ export default function Home() {
 
       <LeafDivider fill="#F5EFE6" bg="#FAF8F5" />
 
+      {/* PALESTRAS & MENTORIAS */}
+      <WaveDividerDown fill="#2E3F2B" bg="#F5EFE6" />
+      <SpotlightSection ref={spotlightRef}>
+        <Container>
+          <SpotlightHeader className="spotlight-header">
+            <SpotlightLabel>Serviços em Destaque</SpotlightLabel>
+            <SpotlightTitle>
+              <span>Palestras</span> & Mentorias
+            </SpotlightTitle>
+            <SpotlightSubtitle>
+              Além do consultório, levo a saúde mental para empresas, escolas e comunidades — e acompanho você em um processo estruturado de autoconhecimento.
+            </SpotlightSubtitle>
+          </SpotlightHeader>
+
+          <SpotlightGrid>
+            <SpotlightCard className="spotlight-card">
+              <SpotlightCardIcon><FaMicrophone /></SpotlightCardIcon>
+              <SpotlightCardTitle>Palestras</SpotlightCardTitle>
+              <SpotlightCardDesc>
+                Palestras dinâmicas e baseadas em evidências sobre saúde mental, bem-estar no trabalho, ansiedade, burnout e prevenção de riscos psicossociais (NR-1). Conteúdo adaptado ao perfil de cada público.
+              </SpotlightCardDesc>
+              <SpotlightBullets>
+                <SpotlightBullet>Empresas, escolas e comunidades</SpotlightBullet>
+                <SpotlightBullet>Formato presencial ou online</SpotlightBullet>
+                <SpotlightBullet>Temas: burnout, ansiedade, NR-1, emoções</SpotlightBullet>
+                <SpotlightBullet>Certificado de participação</SpotlightBullet>
+              </SpotlightBullets>
+              <BtnPrimary href={WA} target="_blank" rel="noopener noreferrer">
+                Solicitar Proposta →
+              </BtnPrimary>
+            </SpotlightCard>
+
+            <SpotlightCard className="spotlight-card">
+              <SpotlightCardIcon><FaLaptop /></SpotlightCardIcon>
+              <SpotlightCardTitle>Mentorias</SpotlightCardTitle>
+              <SpotlightCardDesc>
+                Programa estruturado de desenvolvimento emocional e autoconhecimento. Acompanhamento individualizado ou em grupo, com encontros ao vivo e material de apoio exclusivo.
+              </SpotlightCardDesc>
+              <SpotlightBullets>
+                <SpotlightBullet>Individual ou em grupo</SpotlightBullet>
+                <SpotlightBullet>Encontros online ao vivo</SpotlightBullet>
+                <SpotlightBullet>Foco em regulação emocional</SpotlightBullet>
+                <SpotlightBullet>Material de apoio incluso</SpotlightBullet>
+              </SpotlightBullets>
+              <BtnPrimary href={WA} target="_blank" rel="noopener noreferrer">
+                Quero Saber Mais →
+              </BtnPrimary>
+            </SpotlightCard>
+          </SpotlightGrid>
+        </Container>
+      </SpotlightSection>
+      <WaveDividerDown fill="#F5EFE6" bg="#2E3F2B" />
+
       {/* ABOUT PREVIEW */}
       <AboutSection>
         <AboutInner ref={aboutRef}>
-          <AvatarCircle src="/elisa_roupa_verde.jpeg" alt="Elisa Pereira Psicóloga" />
+          <AvatarCircle src="/IMG-20251112-WA0032.jpg" alt="Elisa Pereira Psicóloga" />
           <div>
             <SectionTitle>Olá, eu sou a Elisa</SectionTitle>
             <SectionSubtitle>
