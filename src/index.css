@@ -25,6 +25,9 @@ body {
 }
 
 body.cursor-active { cursor: none; }
+body.cursor-active a,
+body.cursor-active button,
+body.cursor-active [role="button"] { cursor: none; }
 
 a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; }
